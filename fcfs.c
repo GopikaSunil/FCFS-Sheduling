@@ -37,7 +37,7 @@ int main()
         scanf("%d",&p[i].burst_time);
     }
     p[0].turnaround_time=p[0].completion_time=p[0].burst_time;
-    for(i=0;i<n;i++)
+    for(i=1;i<n;i++)
     {
         int ct=0;
         for(int j=i;j>=0;j--)
