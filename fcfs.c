@@ -67,13 +67,12 @@ int main()
 void print_table(Process p[],int n)
 {
     int i;
-    printf("+---+------------+----------+------------+---------------+\n");
-    printf("|PID|Arrival Time|Burst Time|Waiting Time|Turnaround Time|\n");
-    printf("+---+------------+----------+------------+---------------+\n");
-    for(i=0;i<n;i++)
-    {
-        printf("| %d | %d  |  %d   |   %d    |      %d    |\n",p[i].pid,p[i].arrival_time,p[i].burst_time,p[i].waiting_time,p[i].turnaround_time);
-        printf("+----+-----+-------+---------+------------+\n");
+    printf("+-----+--------------+------------+--------------+----------------+\n");
+    printf("| PID | Arrival Time | Burst Time | Waiting Time | Turnaround Time|\n");
+    printf("+-----+--------------+------------+--------------+----------------+\n");
+    for(i=0;i<n;i++){
+      printf("|  %d  |       %d      |     %d      |      %d       |       %d        |\n",p[i].pid,p[i].arrival_time,p[i].burst_time,p[i].waiting_time,p[i].turnaround_time);
+      printf("+-----+--------------+------------+--------------+----------------+\n");
 
     }
 
@@ -117,7 +116,7 @@ void print_gantt_chart(Process p[],int n)
     printf("0");
     for(i=0;i<n;i++)
     {
-        for(j=0;j<p[i].burst_time;j++)printf(" ");
+        for(j=0;j<p[i].burst_time;j++)printf("  ");
         printf("%d",p[i].completion_time);
     }
     printf("\n");
@@ -129,16 +128,12 @@ void avg_TAT_WT(Process p[],int n)
         sum_waiting_time+=p[i].waiting_time;
         sum_turnaround_time+=p[i].turnaround_time;
     }
-    printf("Total Waiting Time : %.2f\n",sum_waiting_time);
-    printf("Average Waiting Time : %.2f\n",(sum_waiting_time/n));
-    printf("Total Turnaround Time : %.2f\n",sum_turnaround_time);
+    printf("Total Waiting Time      : %.2f\n",sum_waiting_time);
+    printf("Average Waiting Time    : %.2f\n",(sum_waiting_time/n));
+    printf("Total Turnaround Time   : %.2f\n",sum_turnaround_time);
     printf("Average Turnaround Time : %.2f\n",(sum_turnaround_time/n));
 
 }
-
-
-
-
 
 
 
